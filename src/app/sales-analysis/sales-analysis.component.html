@@ -1,0 +1,25 @@
+<h2 class="my-5 text-center">TABLE SALE ANALYSIS</h2>
+
+<div class="container-fluid sale-analysis">
+  <ng-select
+    [options]="productOptions"
+    (selected)="handleSelectChange($event)"
+    placeholder="Choose your product"
+    [noFilter]="Infinity"
+  >
+  </ng-select>
+  <h3 class="my-4">Filtered Amount: {{ totalAmountSelect }}</h3>
+  <div>
+    <ngx-datatable
+      class="bootstrap"
+      [rows]="rows"
+      [columns]="columns"
+      [headerHeight]="50"
+      [footerHeight]="50"
+      rowHeight="40"
+      [limit]="100"
+      [sorts]="[{ prop: 'total_amount', dir: 'desc' }]"
+    >
+    </ngx-datatable>
+  </div>
+</div>

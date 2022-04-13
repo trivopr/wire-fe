@@ -1,0 +1,33 @@
+@import 'shared/shared';
+@import 'pages/pages';
+
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  font-size: 10px;
+  height: 100%;
+}
+
+body {
+  font-size: 1.4rem;
+}
+
+:root {
+  --main-bg-color: #f2f2f2;
+}
+
+.wrapper-content {
+  margin-bottom: 50px;
+  min-height: 100vh;
+  padding-top: 100px;
+}
+
+.container-fluid {
+  max-width: 1440px;
+}
+
+
+.datatable-body-cell {
+  display: flex !important;
+  align-items: center !important;
+}

@@ -1,0 +1,23 @@
+.bd-footer {
+  text-align: left;
+  background-color: #f7f7f7;
+  padding: 3rem 0;
+  font-size: 1.5rem;
+
+  a {
+    font-weight: 600;
+    color: #495057;
+  }
+}
+
+.bd-footer-links {
+  padding-left: 0;
+  margin-bottom: 1.5rem;
+  li {
+    display: inline-block;
+
+    & +li {
+      margin-left: 1rem;
+    }
+  }
+}

@@ -1,0 +1,22 @@
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+
+  &.navbar {
+    padding: 0 1.5rem;
+  }
+
+  .navbar-brand {
+    margin: 0 auto;
+  }
+
+  .navbar-right {
+    .nav-item {
+      display: block;
+      margin-left: 10px;
+    }
+  }
+}
+.profile-picture {
+  width: 2rem;
+}

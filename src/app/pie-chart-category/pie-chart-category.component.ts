@@ -1,6 +1,7 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { ChartConfiguration, ChartData, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-pie-chart-category',
@@ -24,7 +25,7 @@ export class PieChartCategoryComponent implements OnInit {
   }
 
   getData = async () => {
-    const {data} = await fetch('http://localhost:3001/api/retrieve-sales').then(rs => rs.json());
+    const {data} = await fetch(`${environment.serverUrl}/api/retrieve-sales`).then(rs => rs.json());
 
     // Transform Data group by Category
     this.groupOrderByCategory = data.reduce((groups, item) => {

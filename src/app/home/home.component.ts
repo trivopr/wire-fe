@@ -1,3 +1,4 @@
+import { environment } from 'src/environments/environment';
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { ChartConfiguration, ChartData, ChartEvent, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
@@ -26,39 +27,10 @@ export class HomeComponent implements OnInit {
         {
           position: 'left',
         },
-      // 'y-axis-1': {
-      //   position: 'right',
-      //   grid: {
-      //     color: 'rgba(255,0,0,0.3)',
-      //   },
-      //   ticks: {
-      //     color: 'red'
-      //   }
-      // }
     },
 
     plugins: {
       legend: { display: true },
-      // annotation: {
-      //   annotations: [
-      //     {
-      //       type: 'line',
-      //       scaleID: 'x',
-      //       value: 'March',
-      //       borderColor: 'orange',
-      //       borderWidth: 2,
-      //       label: {
-      //         position: 'center',
-      //         enabled: true,
-      //         color: 'orange',
-      //         content: 'LineAnno',
-      //         font: {
-      //           weight: 'bold'
-      //         }
-      //       }
-      //     },
-      //   ],
-      // }
     }
   };
 
@@ -77,7 +49,7 @@ export class HomeComponent implements OnInit {
   }
 
   getData = async () => {
-    const {data} = await fetch('http://localhost:3001/api/retrieve-sales').then(rs => rs.json());
+    const {data} = await fetch(`${environment.serverUrl}/api/retrieve-sales`).then(rs => rs.json());
 
     // Transform data group by Date
     this.groupOrderByDate = data.reduce((groups, item) => {

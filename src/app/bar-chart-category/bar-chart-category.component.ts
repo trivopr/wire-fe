@@ -1,6 +1,7 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { ChartConfiguration, ChartData, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-bar-chart-category',
@@ -24,8 +25,7 @@ export class BarChartCategoryComponent implements OnInit {
   }
 
   getData = async () => {
-    const {data} = await fetch('http://localhost:3001/api/retrieve-sales').then(rs => rs.json());
-    console.log("🚀 ~ file: bar-chart-category.component.ts ~ line 28 ~ BarChartCategoryComponent ~ getData= ~ data", data)
+    const {data} = await fetch(`${environment.serverUrl}/api/retrieve-sales`).then(rs => rs.json());
 
     // Transform Data group by Category
     this.groupOrderByCategory = data.reduce((groups, item) => {
@@ -42,7 +42,6 @@ export class BarChartCategoryComponent implements OnInit {
     })
 
     let chartDataSorted = this.handleSortArrayByName(barChartDataGroup);
-    console.log("🚀 ~ file: bar-chart-category.component.ts ~ line 45 ~ BarChartCategoryComponent ~ getData= ~ chartDataSorted", chartDataSorted)
     this.barChartDataDraw = chartDataSorted.map(i => +i.totalQtyCateName);
     this.barChartLabels = chartDataSorted.map(i => i.cateName);
 

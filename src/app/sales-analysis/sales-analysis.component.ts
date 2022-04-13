@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {IOption} from 'ng-select';
 import * as moment from 'moment';
 import * as numeral from 'numeral';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-sales-analysis',
@@ -26,7 +27,7 @@ export class SalesAnalysisComponent implements OnInit {
   }
 
   getData = async () => {
-    const {data} = await fetch('http://localhost:3001/api/retrieve-sales').then(rs => rs.json());
+    const {data} = await fetch(`${environment.serverUrl}/api/retrieve-sales`).then(rs => rs.json());
     data.forEach(item => {
       item.order_date = moment(item.order_date).format("DD-MMM-YYYY");
       item.totalAmount = this.formatAmountCurrency(item.total_amount);

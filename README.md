@@ -1,7 +1,3 @@
-# LINK DEMO
-
-http://wiresite.s3-website-ap-southeast-1.amazonaws.com/home
-
 # Frontend
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.15.
